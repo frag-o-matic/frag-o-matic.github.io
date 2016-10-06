@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" content="text/html">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Frag's Writings :: Meta</title>
+    <link rel="stylesheet" type="text/css" href="../css/main.css"/>
+</head>
+<body>
+<p>Frag's Writings :: Meta</p>
+<h3>Meta</h3>
+<p>Writing a blog post <em>manually</em> in HTML is too much pain. Setting up a &quot;blogging platform&quot; involves lots of black boxes and weird <del>commands</del> incantations in addition to much pain. Writing posts <a href="https://daringfireball.net/projects/markdown/">Markdown</a> and then transforming into HTML seems to be the way to go. This is a meta-post (more like notes, really) regarding the workflow I intend to follow for future blog posts, if there are any.</p>
+<h3 id="tools">Tools</h3>
+<p>Currently, Frag-Blags<sup>TM</sup> are to be written in Markdown with the following tools:</p>
+<ol start="0" style="list-style-type: decimal">
+<li><a href="https://neovim.io/"><code>neovim</code></a>, my preferred text-editor, for converting thoughts into markdown (essentially, text) efficiently.</li>
+<li><a href="https://pandoc.org/"><code>pandoc</code></a>, the swiss-army knife for document conversion, transforms markdown into HTML that can be published to GH pages</li>
+<li>GNU <a href="https://www.gnu.org/software/make/"><code>make</code></a>, the venerable generator/builder, for wrapping <code>pandoc</code> invocations and cleaning up afterward</li>
+<li><a href="http://tidy.sourceforge.net/"><code>tidy</code></a>, a tool for validating HTML5 locally</li>
+</ol>
+<h3 id="workflow">Workflow</h3>
+<ol start="0" style="list-style-type: decimal">
+<li>Run <code>install.sh</code> to make sure the necessary tools are installed</li>
+<li>Edit <code>post.md</code> and create content in markdown</li>
+<li>Run <code>make</code> when done, this will generate the HTML file from markdown and open the file in default browser via <code>xdg-open</code></li>
+<li><code>mv</code> the generated post <code>post.html</code> into the correct directory</li>
+<li>Edit <code>../posts.html</code> and add a link to point to the newly created post</li>
+<li>Revert <code>post.md</code>, commit other changes and push</li>
+</ol>
+<blockquote>
+<p>The push should have atleast two files <code>the_new_post.html</code> and <code>posts.html</code> (with changes for listing the new post)</p>
+</blockquote>
+<h3 id="validation">Validation</h3>
+<p>Errors generally creep in different categories:</p>
+<ul>
+<li><strong>Spelling</strong>: This is the easy part, <code>neovim</code> has a spell-checker built in and markdown is quite easy to spellcheck</li>
+<li><strong>Syntax</strong>: <code>tidy</code> integrates quite well with <code>neovim</code>, see this <a href="http://vim.wikia.com/wiki/Cleanup%5Fyour%5FHTML">page</a> for details</li>
+<li><strong>Links</strong>: A simple convention like using relative links for local (within the blog) resources and fully-qualified links for external resources can help mitigate this problem</li>
+</ul>
+<h3 id="ugly-bits-and-improvements">Ugly Bits and Improvements</h3>
+<p>There are a few steps requiring manual editing and mucking with HTML, such as:</p>
+<ul>
+<li>editing <code>posts.html</code>, perhaps the entire file can be generated from markdown as well</li>
+<li>add script or make targets for automate post creation and copying to correct dir for publishing</li>
+</ul>
+<h3 id="meta-ception">Meta-ception</h3>
+<p>This is really a meta-post, intended as a test for ensuring that the <code>md-to-html</code> step produces satisfactory output with features such as inline <code>monospace</code> text, <a href="about:blank">links</a> and the like.</p>
+<div><p>&nbsp;</p><hr/><p>&nbsp;</p></div>
+<div style="font-size: x-small;">Last Updated on 2016-10-06 @ 15:36 IST</div>
+<p>&nbsp;</p>
+<div style="text-align: center;">
+<h5><a href="../index.html">Home</a>&nbsp;|&nbsp;<a href="../posts.html">Posts</a></h5>
+</div>
+</body>
+</html>
