@@ -16,3 +16,8 @@ hr {
   height: 1px; 
   background-image: linear-gradient(to right, #ccc, #444, #ccc); 
 }
+
+/* use sans-serif fonts throughout the page */
+* {
+  font-family: Helvetica, Arial, sans-serif !important;
+}
