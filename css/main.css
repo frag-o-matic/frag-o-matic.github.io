@@ -7,14 +7,37 @@ body {
   color:#444;
   padding:0 10px
 }
-h1,h2,h3 {
+
+h1,h2,h3,h4,h5 {
   line-height:1.5
 }
+
 hr {
   /* Based on https://css-tricks.com/examples/hrs/ */
   border: 0; 
   height: 1px; 
   background-image: linear-gradient(to right, #ccc, #444, #ccc); 
+}
+
+/* adjust size of and align superpositioned text properly */
+sup {
+  font-size: 10px;
+  vertical-align: super;
+  line-height: 0;
+}
+
+/* make monospace text stand out */
+pre,code {
+  font-size:16px;
+  font-family: "Courier New", Courier, monospace !important;
+}
+
+/* make blockquotes stand out too*/
+blockquote {
+  background: #eef;
+  border-left: 10px solid #ccc;
+  margin: 1em 10px;
+  padding: 0.5em 5px;
 }
 
 /* use sans-serif fonts throughout the page */
