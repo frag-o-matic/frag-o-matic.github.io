@@ -8,5 +8,8 @@ all:
 		--template=./post.template --variable=date:$(DATE) --variable=time:$(TIME)
 	xdg-open post.html
 
+check:
+	tidy -errors -q post.html
+
 clean:
 	rm -f post.html
