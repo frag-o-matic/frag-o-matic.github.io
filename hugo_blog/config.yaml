@@ -1,0 +1,8 @@
+contentdir: "content"
+layoutdir: "layouts"
+publishdir: "public"
+indexes:
+  category: "categories"
+baseurl: "http://frag-o-matic.github.io/hugo_blog"
+title: "Hugo Blog for GH Pages"
+canonifyurls: true
