@@ -10,9 +10,9 @@
 <p>Frag's Writings :: $title$</p>
 <h3>$title$</h3>
 $body$
-<div><p>&nbsp;</p><hr/><p>&nbsp;</p></div>
+<p>&nbsp;</p><hr/>
 <div style="font-size: x-small;">Last Updated on $date$ @ $time$ IST</div>
-<p>&nbsp;</p>
+<br/>
 <div style="text-align: center;">
 <h5><a href="../index.html">Home</a>&nbsp;|&nbsp;<a href="../posts.html">Posts</a></h5>
 </div>
