@@ -10,28 +10,36 @@
 <p>Frag's Writings :: Notes</p>
 <h3>Notes</h3>
 <h3 id="notes">Notes</h3>
-<p>Notes. A necessary evil to compensate for limited greymatter that a human has. Even more necessary when one is juggling too many things at a time. A simple paper and pen system is often a good start, as compared to keeping everything locked in the noggin, but in this digital age, one cannot help but wonder if there are better ways to deal with the problem of keeping notes and finding them one the need arises.</p>
+<p>Notes. A necessary evil to compensate for limited greymatter that a human has. Notes become even more necessary when one is juggling too many things at a time. A simple paper and pen system is often a good start, as compared to keeping everything locked in the noggin, but in this digital age, one cannot help but wonder if there are better ways to deal with the problem of keeping notes and quickly finding them when the need arises.</p>
 <h3 id="note-taking-applications">Note-taking Applications</h3>
-<p>There are plenty of note-taking applications, often with fancy interfaces and cloud sync capabilities. The problem with these though, is that they do not lend themselves to use in a locked down environment such as a college/work environment where the machine being used has a specific configuration and the user is not granted super user priviledges or the permission to install additional software. How then can one keep and reliably find notes in such an environment? Using existing tools and some <em>weird</em> conventions of course!</p>
+<p>There are plenty of note-taking applications, often with fancy interfaces and cloud sync capabilities. The problem with these though, is that they do not lend themselves to use in a locked down environment such as a college/work environment where the machine being used has a specific configuration and the user is not granted superuser privileges or the permission to install additional software. Sync is also meaningless in such settings as such computers are often not connected to the internet for &quot;security reasons&quot;. How then can one keep and find notes quickly and reliably in such an environment? By (ab)using existing tools and making up some <em>weird</em> conventions of course, aka <em>jugaad</em>.</p>
 <h3 id="a-convoluted-setup">A Convoluted Setup</h3>
-<p>A simple plain-text based note-taking setup with support for rudimentary tags can be built using tools found in the standard C or C++ programmer's toolset, viz. A text-editor and <code>cscope</code> (alternatively, <code>ctags</code> with certain changes). Here's how yours truly built a similar system for keeping notes while in college (for the various labs)</p>
+<p>A simple plain-text based note-taking setup with support for rudimentary tags (and search based on these tags) can be built using just two simple tools found in the standard C or C++ programmer's toolbox, viz. a text-editor and <code>cscope</code> source indexing and browsing utility (alternatively, <code>ctags</code>, the code tag generation tool can also be used with suitable changes). Here's how yours truly built and used a system for notes while working thru' various lab exercises from a restricted local user account on college computers:</p>
 <ul>
-<li>Create an empty directory to hold the notes, this could be in your <code>$HOME</code> dir for general notes or a sub-dir within the project or <code>doc</code> folder of your current workspace for the project/workspace specific stuff</li>
-<li>Start with an empty file with a meaningful name (or timestamp using <code>touch $(date +&quot;%Y%m%d%H%M)</code>, for example. This invocation can be <code>alias</code>ed to a convenient bash command like <code>new_note</code>)</li>
-<li>Add tags as you would declare a global variable in C, eg: <code>const int meta, mid_term_prj, lab02;</code></li>
-<li>Create a list of notes to be indexed using <code>ls &gt; cscope.files</code> and run <code>cscope</code> over these with <code>cscope -b -q -k</code>. This will index all the tags (global variable declaration)</li>
-<li>To find a note based on tags, run <code>cscope</code> in standalone mode with <code>cscope -d</code> (or from within your editor)</li>
+<li>Create an empty directory to hold the notes, this could be in your <code>$HOME</code> dir for general/catch-all notes or a sub-dir within a specific project (eg: the <code>doc</code> or <code>misc</code> folder) for the project/workspace specific stuff</li>
+<li>Start with an empty file with a meaningful name (or timestamp using <code>touch $(date +&quot;%Y%m%d%H%M)</code>, for example. This command itself can be <code>alias</code>ed to something like <code>new_note</code> for convenience)</li>
+<li>In the first line of the newly created note, add tags as you would declare a global variables in C or C++. As a convention, I use <code>const int</code> as the datatype and no initializers, eg: <code>const int meta, mid_term_prj, lab02;</code></li>
+<li>From the second line onwards, content of the note can follow</li>
+</ul>
+<h3 id="indexing-and-finding-by-tag">Indexing and Finding By Tag</h3>
+<p>The purpose of declaring tags as variables is to (ab)use <code>cscope</code> and its capability to quickly jump to definition of variables. To get <code>cscope</code> to work its magic, the following <sub>ritual</sub> preparations are necessary:</p>
+<ul>
+<li>Create a list of notes to be indexed using <code>ls &gt; cscope.files</code> or similar. Run <code>cscope</code> over these with <code>cscope -b -q -k</code>. This will index all the tags (global variable declaration)</li>
+<li>To find a note based on tags, run <code>cscope</code> in standalone mode with <code>cscope -d</code> (or from within your editor) and use the <code>Find this C symbol:</code> or equivalent to search by tag</li>
 <li>To find a note based on content. run <code>grep</code> or similar</li>
 </ul>
 <h3 id="limitations">Limitations</h3>
 <p>Obviously this is an improvised system and has lots of limitations compared to a <em>real</em> note-taking program, some important ones are:</p>
 <ul>
-<li>If your notes are in the same dir as your source, the real variables in your code and the pseudo variables used as tags will get all mixed up</li>
+<li>If your notes are in the same dir as your source, the real variables in your code and the pseudo variables used as tags will get all mixed up. Excercise caution while importing <code>cscope</code> DB in your editor</li>
 <li>This &quot;solution&quot; will not scale well</li>
-<li>No &quot;sync&quot; capabilities</li>
+<li>No sync or backup capabilities of any sort</li>
+<li>No hyperlink or cross-reference capability (can work around by using <code>extern int _tag_name;</code> to workaround this to some degree)</li>
 </ul>
+<h3 id="current-status">Current Status</h3>
+<p>I still employ this system on a day-to-day basis (mostly out of habit) along with simple checklists to keep track of what needs to be done and how to go about doing it. However, I wouldn't recommend using this system except as the last possible alternative before falling back to pen and paper notes.</p>
 <p>&nbsp;</p><hr/>
-<div style="font-size: x-small;">Last Updated on 2017-01-27 @ 20:49 IST</div>
+<div style="font-size: x-small;">Last Updated on 2017-01-27 @ 22:24 IST</div>
 <br/>
 <div style="text-align: center;">
 <h5><a href="../index.html">Home</a>&nbsp;|&nbsp;<a href="../posts.html">Posts</a></h5>
