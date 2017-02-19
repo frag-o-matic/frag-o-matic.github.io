@@ -29,10 +29,9 @@
 <ol start="0" style="list-style-type: decimal">
 <li>Run <code>install.sh</code> to make sure the necessary tools are installed</li>
 <li>Edit <code>post.md</code> and create content in markdown</li>
-<li>Run <code>make</code> when done, this will generate the HTML file from markdown and open the file in default browser via <code>xdg-open</code></li>
+<li>Run <code>make</code> when done, this will generate the HTML file from markdown and <code>make view</code> to open the file in default browser via <code>xdg-open</code></li>
 <li><code>img</code> tags need special attention, esp. aligning images <code>:-/</code></li>
-<li>Run <code>make deploy</code> and rename newly generated file in <code>posts</code> directory. <strike><code>mv</code> the generated post <code>post.html</code> into the correct directory</strike></li>
-<li>Edit <code>../posts.html</code> and add a link to point to the newly created post</li>
+<li>Run <code>make deploy</code> and supply title for new post. This will copy the generated HTML file to the correct location and rebuild the post listing</li>
 <li>Revert <code>post.md</code>, commit other changes and push</li>
 </ol>
 <blockquote>
@@ -48,7 +47,8 @@
 <h3 id="ugly-bits-and-improvements">Ugly Bits and Improvements</h3>
 <p>There are a few steps requiring manual editing and mucking with HTML, such as:</p>
 <ul>
-<li>editing <code>posts.html</code>, perhaps the entire file can be generated from markdown as well</li>
+<li>Image handling needs to be improved</li>
+<li>Done 2017-02-19 via <code>make deploy </code><strike>editing <code>posts.html</code>, perhaps the entire file can be generated from markdown as well</strike></li>
 <li>Done 2017-02-19 via <code>make deploy </code><strike>add script or make targets for automate post creation and copying to correct dir for publishing</strike></li>
 </ul>
 <h3 id="meta-ception">Meta-ception</h3>
