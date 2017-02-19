@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Frag's Writings :: $pagetitle$</title>
     <link rel="stylesheet" type="text/css" href="../css/main.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/prism.css"/>
+    <script type="text/javascript" src="mysrc.js"></script>
 </head>
 <body>
 <p>Frag's Writings :: $title$</p>
@@ -14,7 +16,8 @@ $body$
 <div style="font-size: x-small;">Last Updated on $date$ @ $time$ IST</div>
 <br/>
 <div style="text-align: center;">
-<h5><a href="../index.html">Home</a>&nbsp;|&nbsp;<a href="../posts.html">Posts</a></h5>
+<h5><a href="http://frag-o-matic.github.io/index.html">Home</a>&nbsp;
+    |&nbsp;<a href="http://frag-o-matic.github.io/posts.html">Posts</a></h5>
 </div>
 </body>
 </html>
