@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" content="text/html">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Frag's Writings :: Highlighting</title>
+    <link rel="stylesheet" type="text/css" href="../css/main.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/prism.css"/>
+    <script type="text/javascript" src="../js/prism.js"></script>
+</head>
+<body>
+<p>Frag's Writings :: Highlighting</p>
+<h3>Highlighting</h3>
+<p>Apart from being a must-have feature for any &quot;cool&quot; blog, syntax highlighting is a really useful visual guide when reading code. There are even <a href="http://www.ppig.org/sites/default/files/2015-PPIG-26th-Sarkar.pdf">papers</a> extolling the virtues of this feature.</p>
+<h3 id="aim">Aim</h3>
+<p>For this blog I required a syntax highlighter that was:</p>
+<ul>
+<li>small, preferably a two-file setup (a <code>.js</code> doing the hardwork of lexing and a <code>.css</code> dealing with the actual colours and styling)</li>
+<li>entirely client side (this is a static site, duh!)</li>
+<li>didn't require jumping thru a lot of hoops to get up and running</li>
+</ul>
+<p>Some consultation with the webdev experts in <code>#programming</code> on the <a href="https://dev-s.slack.com/">D&amp;H slack</a> lead me to <a href="http://prismjs.com">prism.js</a> and when all is done, results are pretty good!</p>
+<pre class="language-cpp"><code>#include &lt;iostream&gt;
+int main(void)
+{
+    std::cout&lt;&lt;&quot;Hello, World!&quot;&lt;&lt;std::endl;
+    return 0;
+}</code></pre>
+<p>-vs-</p>
+<pre><code>#include &lt;iostream&gt;
+int main(void)
+{
+    std::cout&lt;&lt;&quot;Hello, World!&quot;&lt;&lt;std::endl;
+    return 0;
+}</code></pre>
+<h4 id="note-to-self">Note to self</h4>
+<blockquote>
+<p>To get <code>pandoc</code> to use the proper <code>class</code> attribute that <code>prism.js</code> expects, use <code>language-cpp</code> instead of <code>cpp</code> in the markdown sources</p>
+</blockquote>
+<p>&nbsp;</p><hr/>
+<div style="font-size: x-small;">Last Updated on 2017-02-19 @ 12:48 IST</div>
+<br/>
+<div style="text-align: center;">
+<h5><a href="http://frag-o-matic.github.io/index.html">Home</a>&nbsp;
+    |&nbsp;<a href="http://frag-o-matic.github.io/posts.html">Posts</a></h5>
+</div>
+</body>
+</html>
