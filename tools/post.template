@@ -6,7 +6,7 @@
     <title>Frag's Writings :: $pagetitle$</title>
     <link rel="stylesheet" type="text/css" href="../css/main.css"/>
     <link rel="stylesheet" type="text/css" href="../css/prism.css"/>
-    <script type="text/javascript" src="mysrc.js"></script>
+    <script type="text/javascript" src="../js/prism.js"></script>
 </head>
 <body>
 <p>Frag's Writings :: $title$</p>
